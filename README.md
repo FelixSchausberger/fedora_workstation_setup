@@ -11,10 +11,14 @@ Personal configuration and other convenient files.
 
 ```shell
 --[ base_folder
-    |--[ [.config](.config/): Hosts configuration files for various applications.
-    |--[ [.local](.local/): Hosts executables and fonts.
-    |--[ [Pictures](Pictures/): Hosts background and profile pictures.
+    |--[ .config
+    |--[ .local
+    |--[ Pictures
 ```
+
+- [.config](.config/): Hosts configuration files for various applications.
+- [.local](.local/): Hosts executables and fonts.
+- [Pictures](Pictures/): Hosts background and profile pictures.
 
 ## First steps
 
