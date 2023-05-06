@@ -53,3 +53,11 @@ Personal configuration and other convenient files.
   - [GSConnect](<https://extensions.gnome.org/extension/1319/gsconnect/>)
   - [Clipboard History](https://extensions.gnome.org/extension/4839/clipboard-history/)
   - [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
+
+- Fedora 38:
+
+  Increase max map count of virtual memory to increase compatibility with Windows games:
+
+  ```shell
+  echo vm.max_map_count=2147483642 | sudo tee -a /etc/sysctl.d/90-override.conf
+  ```

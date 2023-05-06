@@ -44,6 +44,7 @@ PACKAGES = {
         "org.gimp.GIMP",
         # "org.jabref.jabref",
         "net.cozic.joplin_desktop",
+        "io.podman_desktop.PodmanDesktop",
         # "com.prusa3d.PrusaSlicer",
         "org.gnome.seahorse.Application",
         "org.gnome.Shotwell",
