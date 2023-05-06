@@ -40,6 +40,16 @@ Personal configuration and other convenient files.
   .local/bin/system_setup.py
   ```
 
+- To add autologin:
+
+  Edit `/etc/gdm/custom.conf`:
+
+  ```shell
+  [daemon]
+  AutomaticLoginEnable=true
+  AutomaticLogin=fesch
+  ```
+
 - To maintain the system:
 
   ```shell
