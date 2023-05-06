@@ -19,18 +19,19 @@ PACKAGES = {
         "cmake",
         "cronie",
         "exa",
+        "firejail",  # For lutris
         "fish",
         "fd-find",
         "fzf",
         "gnome-tweaks",
-        "util-linux-user",  # For chsh
         "neovim",
+        "util-linux-user",  # For chsh
         "openssl nautilus-python",  # Used for GSConnect
         "python3-pip",
         "rclone",
         "ripgrep",
-        # "terminator",
-        "tlp tlp-rdw powertop",  # To improve battery life
+        "steam-devices",
+        # "tlp tlp-rdw powertop",  # To improve battery life
         "trash-cli",
     ],
     "dnf groupinstall -y": ["'Development Tools'"],
@@ -42,12 +43,15 @@ PACKAGES = {
         "org.ferdium.Ferdium",
         # "org.freecadweb.FreeCAD",
         "org.gimp.GIMP",
+        "io.github.shiftey.Desktop",
         # "org.jabref.jabref",
         "net.cozic.joplin_desktop",
+        "net.lutris.Lutris",
         "io.podman_desktop.PodmanDesktop",
         # "com.prusa3d.PrusaSlicer",
         "org.gnome.seahorse.Application",
         "org.gnome.Shotwell",
+        "com.valvesoftware.Steam",
         "org.videolan.VLC",
     ],
     "curl": [
@@ -82,17 +86,9 @@ class Installer:
         self.configure_flatpak()
         self.make_eurkey_visible()
         self.configure_surface_linux()
-        self.add_game_launchers()
         self.add_dnf_flags()
         self.install_vscode()
         self.install_firacode()
-
-    def add_game_launchers(self):
-        """
-        Asks user if they want to add game launchers and adds them if they do.
-        """
-        if input("Do you want to install game launchers? ") == "yes":
-            PACKAGES.update({"dnf install -y": ["steam", "lutris", "firejail"]})
 
     def add_automount_gdrive(self):
         """
