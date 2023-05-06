@@ -24,7 +24,6 @@ PACKAGES = {
         "fzf",
         "gnome-tweaks",
         "util-linux-user",  # For chsh
-        "neovim",
         "openssl nautilus-python",  # Used for GSConnect
         "python3-pip",
         "rclone",
@@ -44,6 +43,7 @@ PACKAGES = {
         "org.gimp.GIMP",
         # "org.jabref.jabref",
         "net.cozic.joplin_desktop",
+        "io.neovim.nvim",
         # "com.prusa3d.PrusaSlicer",
         "org.gnome.seahorse.Application",
         "org.gnome.Shotwell",
