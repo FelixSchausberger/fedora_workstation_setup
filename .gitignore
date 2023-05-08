@@ -19,6 +19,7 @@
 !/.local/share/fonts
 /.local/share/fonts/*
 !/.local/share/fonts/nerd-fonts
+!/.local/share/gnome-background-properties
 
 !/Pictures
 /Pictures/*

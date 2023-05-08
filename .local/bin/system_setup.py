@@ -19,19 +19,19 @@ PACKAGES = {
         "cmake",
         "cronie",
         "exa",
-        "firejail",  # For lutris
+        # "firejail",  # For lutris
         "fish",
         "fd-find",
         "fzf",
         "gnome-tweaks",
         "neovim",
         "util-linux-user",  # For chsh
-        "openssl nautilus-python",  # Used for GSConnect
+        "openssl nautilus-python",  # For GSConnect
         "python3-pip",
         "rclone",
         "ripgrep",
         "steam-devices",
-        # "tlp tlp-rdw powertop",  # To improve battery life
+        # "tlp tlp-rdw powertop",  # Only if on laptop to improve battery life
         "trash-cli",
     ],
     "dnf groupinstall -y": ["'Development Tools'"],
@@ -46,12 +46,11 @@ PACKAGES = {
         "io.github.shiftey.Desktop",
         # "org.jabref.jabref",
         "net.cozic.joplin_desktop",
-        "net.lutris.Lutris",
+        # "net.lutris.Lutris",
         "io.podman_desktop.PodmanDesktop",
         # "com.prusa3d.PrusaSlicer",
         "org.gnome.seahorse.Application",
-        "org.gnome.Shotwell",
-        "com.valvesoftware.Steam",
+        # "com.valvesoftware.Steam",
         "org.videolan.VLC",
     ],
     "curl": [
@@ -90,21 +89,21 @@ class Installer:
         self.install_vscode()
         self.install_firacode()
 
-    def add_automount_gdrive(self):
+    def add_cronjobs(self):
         """
-        Asks user if they want to automount google drive and does if they do.
+        Asks user if they want to add cronjobs and does if they do.
         """
-        if input("Do you want to automount google drive? ") == "yes":
+        if input("Do you want to add cronjobs? ") == "yes":
             # Check if the cron job already exists
             if (
-                b"@reboot .local/bin/startup_applications.sh"
+                b"@reboot .local/bin/startup_applications.sh .local/bin/backgrounds_xml_generator.py"
                 not in run(["crontab", "-l"], stdout=PIPE).stdout
             ):
                 # If the cron job doesn't exist, add it
                 run(
                     [
                         "echo",
-                        "@reboot .local/bin/startup_applications.sh",
+                        "@reboot .local/bin/startup_applications.sh .local/bin/backgrounds_xml_generator.py",
                         "|",
                         "crontab",
                         "-",
@@ -269,7 +268,7 @@ class Installer:
                             f"{RED}:: Command failed with return code {error.returncode}.{RESET}"
                         )
 
-        self.add_automount_gdrive()
+        self.add_cronjobs()
         self.configure_fish()
 
         print(f"{GREEN}\n:: Finished{RESET}")
