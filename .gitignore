@@ -30,6 +30,8 @@
 
 !/README.md
 
+!/Templates
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json

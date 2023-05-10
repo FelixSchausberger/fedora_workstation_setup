@@ -41,6 +41,7 @@ PACKAGES = {
         # "org.gnome.EasyTAG",
         "com.mattjakeman.ExtensionManager",
         "org.ferdium.Ferdium",
+        "com.github.tchx84.Flatseal",
         # "org.freecadweb.FreeCAD",
         "org.gimp.GIMP",
         "io.github.shiftey.Desktop",
@@ -64,9 +65,6 @@ PACKAGES = {
         "topgrade",
         "--git https://github.com/typst/typst",
         "zoxide --locked",
-    ],
-    "pip install": [
-        "shell-gpt==0.9.0",
     ],
 }
 
@@ -267,6 +265,14 @@ class Installer:
                         print(
                             f"{RED}:: Command failed with return code {error.returncode}.{RESET}"
                         )
+
+        try:
+            run(split(f"pip install shell-gpt==0.9.0"), check=True)
+            print(f"{GREEN}:: Done{RESET}")
+        except CalledProcessError as error:
+            print(
+                f"{RED}:: Command failed with return code {error.returncode}.{RESET}"
+            )
 
         self.add_cronjobs()
         self.configure_fish()
